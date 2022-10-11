@@ -18,8 +18,15 @@ public class Client {
                 String userInput;
                 while (true) {
                     userInput=sc.nextLine();
+                    if(userInput == "exit"){
+                        try {
+                            socket.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
                     out.println(username+": "+ userInput);
-                    //out.flush();
+                    }
                 }
             }
         });
@@ -39,5 +46,6 @@ public class Client {
         });
         sender.start();
         receiver.start();
+        sc.close();
     }
 }

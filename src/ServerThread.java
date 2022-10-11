@@ -1,9 +1,7 @@
-import java.net.*;
 import java.io.*;
 import java.util.ArrayList;
 
 public class ServerThread extends Thread {
-    private Socket socket = null;
     private BufferedReader in;
     private ArrayList<PrintWriter> outList;
     public ServerThread(BufferedReader in, ArrayList<PrintWriter> outList) {
@@ -12,7 +10,7 @@ public class ServerThread extends Thread {
     }
 
     public void run() {
-            String inputLine, outputLine;
+            String inputLine;
             while (true) {
                 try {
                     if (((inputLine = in.readLine()) != null));
