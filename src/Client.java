@@ -26,7 +26,7 @@ public class Client {
                             e.printStackTrace();
                         }
                     }else{
-                        out.println(username+": "+ userInput);
+                        out.println("["+username+"]"+": "+ userInput);
                     }
                 }
             }
