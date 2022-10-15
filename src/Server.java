@@ -8,14 +8,7 @@ public class Server {
         int portNumber = 4444;
         try (ServerSocket serverSocket = new ServerSocket(portNumber)){
             while(true){
-                Socket socket = serverSocket.accept();
-                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                outlist.add(out);
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(
-                                socket.getInputStream()));
-
-                new ServerThread(in,outlist).start();
+                new ServerThread(serverSocket.accept()).start();
             }
         } catch (IOException e) {
             System.out.println("Exception caught when trying to listen on port "
